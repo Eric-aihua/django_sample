@@ -5,7 +5,8 @@ from django.urls import reverse
 from django.utils import timezone
 from django.views import generic
 from .models import Question, Choice
-
+import logging
+logger = logging.getLogger(__name__)
 # ===============================view method=====================================
 
 # def index(request):
@@ -52,6 +53,7 @@ class ResultsView(generic.DetailView):
     template_name = 'polls/results.html'
 
 def vote(request, question_id):
+    logger.info('##question_id:%s' % question_id)
     question = get_object_or_404(Question, pk=question_id)
     try:
         selected_choice = question.choice_set.get(pk=request.POST['choice'])

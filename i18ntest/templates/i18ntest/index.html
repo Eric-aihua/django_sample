@@ -1,0 +1,19 @@
+{% load i18n %}
+<title>{% trans "This is the title." %}</title>
+<title>{% trans i18ntest %}</title>
+
+{% trans "starting point" as start %}
+{% trans "end point" as end %}
+{% trans "La Grande Boucle" as race %}
+
+{% blocktrans %}This string will have {{ value }} inside.{% endblocktrans %}
+
+{% get_current_language as LANGUAGE_CODE %}
+<!-- Current language: {{ LANGUAGE_CODE }} -->
+<p>{% trans "Welcome to our page" %}</p>
+
+{% language 'en' %}
+    {% get_current_language as LANGUAGE_CODE %}
+    <!-- Current language: {{ LANGUAGE_CODE }} -->
+    <p>{% trans "Welcome to our page" %}</p>
+{% endlanguage %}

@@ -24,7 +24,7 @@ SECRET_KEY = 'k^sv9tkzt*77&uvv-wo@i23@yj#a*ar0+=niwb+n1@kk!c@j%='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1','testserver']
 
 # Application definition
 
@@ -117,3 +117,4 @@ STATIC_URL = '/static/'
 SITE_PAGES_DIRECTORY = os.path.join(BASE_DIR, 'pages')
 SITE_OUTPUT_DIRECTORY = os.path.join(BASE_DIR, '_build')
 STATIC_ROOT = os.path.join(BASE_DIR, '_build', 'static')
+STATICFILES_STORAGE='django.contrib.staticfiles.storage.CachedStaticFilesStorage'

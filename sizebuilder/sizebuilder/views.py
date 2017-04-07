@@ -41,7 +41,7 @@ def page(requests, slug='index'):
     context = {'slug': slug, 'page': page}
     if page._meta:
         meta = page._meta.render(Context())
-        print meta
+        # print meta
         extra_context = json.loads(meta)
         context.update(extra_context)
     return render(requests, 'page.html', context)

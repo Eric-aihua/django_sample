@@ -246,5 +246,10 @@ class SnippetViewSet(viewsets.ModelViewSet):
         snippet = self.get_object()
         return Response(snippet.highlighted)
 
+    # 添加自定义方法
+    def get_test(self, request):
+        l = range(10)
+        return Response(data=l)
+
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)

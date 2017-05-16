@@ -5,11 +5,18 @@ from rest_framework.urlpatterns import format_suffix_patterns
 __author__ = 'eric.sun'
 
 from django.conf.urls import url, include
+from rest_framework.schemas import get_schema_view
 import views
 
 
 router = DefaultRouter()
 router.register(r'snippets', views.SnippetViewSet)
+schema_view = get_schema_view(title='Pastebin API')
+
+get_test=views.SnippetViewSet.as_view({
+    'get':'get_test'
+})
+
 
 urlpatterns = [
     # 使用API_VIEW Function定义
@@ -28,6 +35,8 @@ urlpatterns = [
 
     #############################################使用Model class
     url(r'^', include(router.urls)),
+    url(r'^snippets/get_test', get_test),
+    url(r'^schema/$', schema_view),
 ]
 
 # urlpatterns = format_suffix_patterns(urlpatterns)

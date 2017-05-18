@@ -55,7 +55,8 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'django_rest.urls'
 
 REST_FRAMEWORK = {
-    'PAGE_SIZE': 3
+    'PAGE_SIZE': 3,
+    'DEFAULT_METADATA_CLASS': 'core.meta.MinimalMetadata'
 }
 
 TEMPLATES = [

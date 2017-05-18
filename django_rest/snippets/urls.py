@@ -11,7 +11,7 @@ import views
 
 router = DefaultRouter()
 router.register(r'snippets', views.SnippetViewSet)
-schema_view = get_schema_view(title='Pastebin API')
+schema_view = get_schema_view(title='Pastebin API',public=True)
 
 get_test=views.SnippetViewSet.as_view({
     'get':'get_test'

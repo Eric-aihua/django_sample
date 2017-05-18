@@ -16,7 +16,7 @@ from rest_framework import mixins
 from rest_framework import permissions
 from rest_framework import renderers
 from rest_framework import status
-from rest_framework.decorators import api_view, detail_route
+from rest_framework.decorators import api_view, detail_route, list_route
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 from rest_framework.response import Response
@@ -240,6 +240,22 @@ class SnippetViewSet(viewsets.ModelViewSet):
     """
     queryset = Snippet.objects.all()
     serializer_class = SnippetSerializer
+
+    @list_route()
+    def list_names(self,request):
+        l=range(10)
+        return Response(l)
+
+    @list_route(methods=['GET'])
+    def schema(self,request):
+        meta=self.metadata_class()
+        data=meta.determine_metadata(request,self)
+        return Response(data)
+
+    @list_route()
+    def list_names2(self,request):
+        l=range(10)
+        return Response(l)
 
     @detail_route(renderer_classes=[renderers.StaticHTMLRenderer])
     def highlight(self, request, *args, **kwargs):

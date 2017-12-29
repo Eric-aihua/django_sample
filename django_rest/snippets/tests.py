@@ -10,7 +10,7 @@ from django.test import TestCase
 #from rest_framework import settings
 import os
 import sys
-sys.path.append('E:\\Sourcecode\\github\\django_sample\\django_rest')
+sys.path.append('F:\\Sourcecode\\github\\django_sample\\django_rest')
 print sys.path
 import django_rest.settings
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "django_rest.settings")
